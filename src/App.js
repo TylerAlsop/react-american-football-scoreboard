@@ -38,7 +38,7 @@ function App() {
 
   return (
     <ScoresContext.Provider value={{ homeScore, setHomeScore, awayScore, setAwayScore }}>
-      <BottomRowContext.Provider value={{  }}>
+      <BottomRowContext.Provider value={{ downNumber, setDownNumber, yardsToGo, setYardsToGo, yardLine, setYardLine, quarterNumber, setQuarterNumber }}>
         <div className="container">
           <section className="scoreboard">
             <div className="topRow">

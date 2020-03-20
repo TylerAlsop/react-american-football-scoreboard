@@ -1,9 +1,12 @@
-import React, {useState} from "react";
-import "./App.css";
+import React, {useContext} from "react";
+// import "./App.css";
+import BottomRowContext from "../contexts/BottomRowContext";
 
 function BottomRow() {
+  const { downNumber, setDownNumber, yardsToGo, setYardsToGo, yardLine, setYardLine, quarterNumber, setQuarterNumber } = useContext(BottomRowContext);
+
   //////////////////// Down Number ////////////////////
-  const [downNumber, setDownNumber] = useState(1);
+  // const [downNumber, setDownNumber] = useState(1);
 
   const nextDown = (e) => {
     if (downNumber <= 3) {
@@ -14,7 +17,7 @@ function BottomRow() {
   }
 
   //////////////////// Yards To Go ////////////////////
-  const [yardsToGo, setYardsToGo] = useState(0);
+  // const [yardsToGo, setYardsToGo] = useState(0);
 
   const addOneYardToGo = (e) => {
     if (yardsToGo <= 98) {
@@ -45,7 +48,7 @@ function BottomRow() {
   }
 
   //////////////////// Yard Line ////////////////////
-  const [yardLine, setYardLine] = useState(1);
+  // const [yardLine, setYardLine] = useState(1);
 
   const addOneYardLine = (e) => {
     if (yardLine <= 49) {
@@ -72,7 +75,7 @@ function BottomRow() {
   }
 
   //////////////////// Quarter Number ////////////////////
-  const [quarterNumber, setQuarterNumber] = useState(1);
+  // const [quarterNumber, setQuarterNumber] = useState(1);
 
   const nextQuarter = (e) => {
     if (quarterNumber <= 3) {
