@@ -1,7 +1,12 @@
 //TODO: STEP 1 - Import the useState hook.
 import React, {useState} from "react";
 import "./App.css";
-import BottomRow from "./BottomRow";
+import TopRow from './components/TopRow';
+import BottomRow from "./components/BottomRow";
+import ScoreBoardButtons from './components/ScoreBoardButtons';
+
+import TopRowContext from './contexts/TopRowContext';
+import BottomRowContext from './contexts/BottomRowContext';
 
 
 
@@ -10,54 +15,29 @@ function App() {
   const [homeScore, setHomeScore] = useState(0);
   const [awayScore, setAwayScore] = useState(0);
 
-  const homeTouchDown = (e) => {
-    setHomeScore(homeScore + 7)
-  }
+  const [downNumber, setDownNumber] = useState(1);
+  const [yardsToGo, setYardsToGo] = useState(0);
+  const [yardLine, setYardLine] = useState(1);
+  const [quarterNumber, setQuarterNumber] = useState(1);
 
-  const homeFieldGoal = (e) => {
-    setHomeScore(homeScore + 3)
-  }
 
-  const awayTouchDown = (e) => {
-    setAwayScore(awayScore + 7)
-  }
-
-  const awayFieldGoal = (e) => {
-    setAwayScore(awayScore + 3)
-  }
 
 
   return (
-    <div className="container">
-      <section className="scoreboard">
-        <div className="topRow">
-          <div className="home">
-            <h2 className="home__name">Lions</h2>
-
-            {/* TODO STEP 3 - We need to change the hardcoded values in these divs to accept dynamic values from our state. */}
-
-            <div className="home__score">{homeScore}</div>
-          </div>
-          <div className="timer">00:03</div>
-          <div className="away">
-            <h2 className="away__name">Tigers</h2>
-            <div className="away__score">{awayScore}</div>
-          </div>
+    <TopRowContext.Provider value={{ homeScore, setHomeScore, awayScore, setAwayScore }}>
+      <BottomRowContext.Provider value={{ downNumber, setDownNumber, yardsToGo, setYardsToGo, yardLine, setYardLine, quarterNumber, setQuarterNumber }}>
+        <div className="container">
+          <section className="scoreboard">
+            <TopRow />
+            <BottomRow />
+          </section>
+          <section className="buttons">
+            <ScoreBoardButtons />
+          </section>
         </div>
-        <BottomRow />
-      </section>
-      <section className="buttons">
-        <div className="homeButtons">
-          {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button className="homeButtons__touchdown" onClick={homeTouchDown}>Home Touchdown</button>
-          <button className="homeButtons__fieldGoal" onClick={homeFieldGoal}>Home Field Goal</button>
-        </div>
-        <div className="awayButtons">
-          <button className="awayButtons__touchdown" onClick={awayTouchDown}>Away Touchdown</button>
-          <button className="awayButtons__fieldGoal" onClick={awayFieldGoal}>Away Field Goal</button>
-        </div>
-      </section>
-    </div>
+      </BottomRowContext.Provider>
+    </TopRowContext.Provider>
+    
   );
 }
 
