@@ -1,9 +1,10 @@
 //TODO: STEP 1 - Import the useState hook.
 import React, {useState} from "react";
 import "./App.css";
+import TopRow from './components/TopRow';
 import BottomRow from "./components/BottomRow";
 
-import ScoresContext from './contexts/ScoresContext';
+import TopRowContext from './contexts/TopRowContext';
 import BottomRowContext from './contexts/BottomRowContext';
 
 
@@ -37,24 +38,11 @@ function App() {
 
 
   return (
-    <ScoresContext.Provider value={{ homeScore, setHomeScore, awayScore, setAwayScore }}>
+    <TopRowContext.Provider value={{ homeScore, setHomeScore, awayScore, setAwayScore }}>
       <BottomRowContext.Provider value={{ downNumber, setDownNumber, yardsToGo, setYardsToGo, yardLine, setYardLine, quarterNumber, setQuarterNumber }}>
         <div className="container">
           <section className="scoreboard">
-            <div className="topRow">
-              <div className="home">
-                <h2 className="home__name">Lions</h2>
-
-                {/* TODO STEP 3 - We need to change the hardcoded values in these divs to accept dynamic values from our state. */}
-
-                <div className="home__score">{homeScore}</div>
-              </div>
-              <div className="timer">00:03</div>
-              <div className="away">
-                <h2 className="away__name">Tigers</h2>
-                <div className="away__score">{awayScore}</div>
-              </div>
-            </div>
+            <TopRow />
             <BottomRow />
           </section>
           <section className="buttons">
@@ -70,7 +58,7 @@ function App() {
           </section>
         </div>
       </BottomRowContext.Provider>
-    </ScoresContext.Provider>
+    </TopRowContext.Provider>
     
   );
 }
