@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import "./App.css";
 import TopRow from './components/TopRow';
 import BottomRow from "./components/BottomRow";
+import ScoreBoardButtons from './components/ScoreBoardButtons';
 
 import TopRowContext from './contexts/TopRowContext';
 import BottomRowContext from './contexts/BottomRowContext';
@@ -20,21 +21,6 @@ function App() {
   const [quarterNumber, setQuarterNumber] = useState(1);
 
 
-  const homeTouchDown = (e) => {
-    setHomeScore(homeScore + 7)
-  }
-
-  const homeFieldGoal = (e) => {
-    setHomeScore(homeScore + 3)
-  }
-
-  const awayTouchDown = (e) => {
-    setAwayScore(awayScore + 7)
-  }
-
-  const awayFieldGoal = (e) => {
-    setAwayScore(awayScore + 3)
-  }
 
 
   return (
@@ -46,15 +32,7 @@ function App() {
             <BottomRow />
           </section>
           <section className="buttons">
-            <div className="homeButtons">
-              {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-              <button className="homeButtons__touchdown" onClick={homeTouchDown}>Home Touchdown</button>
-              <button className="homeButtons__fieldGoal" onClick={homeFieldGoal}>Home Field Goal</button>
-            </div>
-            <div className="awayButtons">
-              <button className="awayButtons__touchdown" onClick={awayTouchDown}>Away Touchdown</button>
-              <button className="awayButtons__fieldGoal" onClick={awayFieldGoal}>Away Field Goal</button>
-            </div>
+            <ScoreBoardButtons />
           </section>
         </div>
       </BottomRowContext.Provider>
