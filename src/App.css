@@ -4,7 +4,7 @@
 }
 
 .scoreboard {
-  width: 58%;
+  width: 60%;
   margin: 10rem auto;
   background-color: #0b5402;
   color: white;
@@ -107,7 +107,7 @@
 }
 
 .buttons {
-  width: 50%;
+  width: 75%;
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
@@ -119,4 +119,49 @@
 .awayButtons__fieldGoal {
   margin: 1rem;
   border-radius: 4px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-away-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-top: 1px black solid;
+
+}
+
+.homeButtons, 
+.awayButtons {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 25px;
+}
+
+.down-quarter,
+.yards-to-go,
+.ball-on {
+  border-top: 1px black solid;
+}
+
+.down-quarter-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 25px;
+
+}
+
+.to-go-buttons,
+.ball-on-buttons {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+  padding-bottom: 25px;
+
 }

@@ -110,28 +110,45 @@ function ScoreBoardButtons() {
 
     return (
         <div className="buttons">
-            <div className="homeButtons">
-                <button className="homeButtons__touchdown" onClick={homeTouchDown}>Home Touchdown</button>
-                <button className="homeButtons__fieldGoal" onClick={homeFieldGoal}>Home Field Goal</button>
+            <div className="home-away-buttons">
+                <h3 className="buttons-heading">Team Score's Buttons</h3>
+                <div className="homeButtons">
+                    <button className="homeButtons__touchdown" onClick={homeTouchDown}>Home Touchdown</button>
+                    <button className="homeButtons__fieldGoal" onClick={homeFieldGoal}>Home Field Goal</button>
+                </div>
+                <div className="awayButtons">
+                    <button className="awayButtons__touchdown" onClick={awayTouchDown}>Away Touchdown</button>
+                    <button className="awayButtons__fieldGoal" onClick={awayFieldGoal}>Away Field Goal</button>
+                </div>
             </div>
-            <div className="awayButtons">
-                <button className="awayButtons__touchdown" onClick={awayTouchDown}>Away Touchdown</button>
-                <button className="awayButtons__fieldGoal" onClick={awayFieldGoal}>Away Field Goal</button>
+            
+            <div className="down-quarter">
+                <h3 className="buttons-heading">Down / Quarter Buttons</h3>
+                <div className="down-quarter-buttons">
+                    <button className="next_down" onClick={nextDown}>Next Down</button>
+                    <button className="next_quarter" onClick={nextQuarter}>Next Quarter</button>
+                </div>
+
             </div>
-            <div className="down-quarter-buttons">
-                <button className="next_down" onClick={nextDown}>Next Down</button>
-                <button className="next_quarter" onClick={nextQuarter}>Next Quarter</button>
+            <div className="yards-to-go">
+                <h3 className="buttons-heading">Yards To Go Buttons</h3>
+                <div className="to-go-buttons">
+                    <button className="add_one_yard" onClick={addOneYardToGo}>+1</button>
+                    <button className="add_five_yards" onClick={addFiveYardsToGo}>+5</button>
+                    <button className="add_ten_yards" onClick={addTenYardsToGo}>+10</button>
+                    <button className="goal_less_than_10" onClick={goalIsLessThan10Yards}>"Goal"</button>    
+                </div>
+
             </div>
-            <div className="to-go-buttons">
-                <button className="add_one_yard" onClick={addOneYardToGo}>+1</button>
-                <button className="add_five_yards" onClick={addFiveYardsToGo}>+5</button>
-                <button className="add_ten_yards" onClick={addTenYardsToGo}>+10</button>
-                <button className="goal_less_than_10" onClick={goalIsLessThan10Yards}>"Goal"</button>
-            </div>
-            <div className="ball-on-buttons">
-                <button className="add_one_yard" onClick={addOneYardLine}>+1</button>
-                <button className="add_five_yards" onClick={addFiveYardsLine}>+5</button>
-                <button className="add_ten_yards" onClick={addTenYardsLine}>+10</button>
+            <div className="ball-on">
+                <h3 className="buttons-heading">Ball is on this yard line:</h3>
+                <div className="ball-on-buttons">
+                    <button className="add_one_yard" onClick={addOneYardLine}>+1</button>
+                    <button className="add_five_yards" onClick={addFiveYardsLine}>+5</button>
+                    <button className="add_ten_yards" onClick={addTenYardsLine}>+10</button>
+                </div>
+
+
             </div>
         </div>
         

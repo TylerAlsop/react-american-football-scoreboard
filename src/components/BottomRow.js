@@ -3,7 +3,7 @@ import React, {useContext} from "react";
 import BottomRowContext from "../contexts/BottomRowContext";
 
 function BottomRow() {
-  const { downNumber, setDownNumber, yardsToGo, setYardsToGo, yardLine, setYardLine, quarterNumber, setQuarterNumber } = useContext(BottomRowContext);
+  const { downNumber, yardsToGo, yardLine, quarterNumber } = useContext(BottomRowContext);
 
 
 
